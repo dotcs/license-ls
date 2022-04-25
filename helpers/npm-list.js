@@ -19,7 +19,7 @@ module.exports = function (opts = {}) {
         debug('Got these options: %s', JSON.stringify(options, null, 2))
 
         // always pass in the `parseable` flag so that the value can be used programmatically
-        const cmdNpmList = spawn('npm', ['list', '--parseable', ...options])
+        const cmdNpmList = spawn('npm', ['list', '--parseable', '--all', ...options])
         let packagePaths = ''
 
         cmdNpmList.stdout.on('data', (data) => {
